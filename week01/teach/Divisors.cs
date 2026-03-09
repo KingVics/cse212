@@ -19,6 +19,31 @@ public static class Divisors {
     private static List<int> FindDivisors(int number) {
         List<int> results = new();
         // TODO problem 1
+        List<int> results = new();
+        if (number <= 1) {
+            return results;
+        }
+
+        results.Add(1);
+        List<int> highDivisors = new();
+        int limit = (int)Math.Sqrt(number);
+
+        for (int divisor = 2; divisor <= limit; divisor++) {
+            if (number % divisor != 0) {
+                continue;
+            }
+
+            results.Add(divisor);
+            int pair = number / divisor;
+            if (pair != divisor && pair != number) {
+                highDivisors.Add(pair);
+            }
+        }
+
+        for (int i = highDivisors.Count - 1; i >= 0; i--) {
+            results.Add(highDivisors[i]);
+        }
+
         return results;
     }
 }
