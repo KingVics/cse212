@@ -24,6 +24,8 @@ public class Translator
     /// <returns>fixed array of divisors</returns>
     public void AddWord(string fromWord, string toWord)
     {
+        _words[fromWord] = toWord;
+
         // ADD YOUR CODE HERE
     }
 
